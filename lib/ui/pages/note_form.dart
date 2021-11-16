@@ -58,13 +58,14 @@ class _NoteFormState extends State<NoteForm> {
         child: Form(
           key: _formKey,
           child: Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.symmetric(
+              vertical: 10.0,
+              horizontal: 20.0,
+            ),
             child: Column(
               // mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(height: 20),
                 NoteTitle(titleController: _titleController),
-                const SizedBox(height: 20),
                 NoteBody(contentController: _contentController)
               ],
             ),
@@ -95,9 +96,9 @@ class NoteTitle extends StatelessWidget {
       },
       controller: _titleController,
       decoration: const InputDecoration(
-        labelStyle: TextStyle(color: Colors.black38),
-        border: OutlineInputBorder(),
-        labelText: 'Note Title',
+        border: InputBorder.none,
+        hintStyle: TextStyle(color: Colors.black38),
+        hintText: 'Note Title',
       ),
     );
   }
@@ -126,10 +127,9 @@ class NoteBody extends StatelessWidget {
       maxLines: null,
       minLines: 3,
       controller: _contentController,
+      autofocus: true,
       decoration: const InputDecoration(
-        labelStyle: TextStyle(color: Colors.black38),
-        border: OutlineInputBorder(),
-        labelText: 'Note Body',
+        border: InputBorder.none,
       ),
     );
   }

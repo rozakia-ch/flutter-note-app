@@ -14,13 +14,10 @@ class AlertDialogRefactor extends StatelessWidget {
       ),
       actions: [
         ElevatedButton(
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(const Color(0xFFFFFFFF)),
+          style: ElevatedButton.styleFrom(
+            primary: Colors.red,
           ),
-          child: const Text(
-            'YES',
-            style: TextStyle(color: Colors.redAccent),
-          ),
+          child: const Text('YES'),
           onPressed: () {
             BlocProvider.of<NoteBloc>(context).add(
               NoteDeleteEvent(index: index),
